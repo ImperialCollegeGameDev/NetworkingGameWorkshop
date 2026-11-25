@@ -1,0 +1,11 @@
+DirectionalLight3D
+MeshInstance3D
+CollisionShape3D
+StaticBody3D
+Node3D
+Camera3D
+MultiplayerSynchronizer
+CharacterBody3D
+Button
+Node2D
+Node

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://jmbybekwvead"]
+
+[ext_resource type="Script" uid="uid://dd4e26bf704cr" path="res://NetworkingClient.gd" id="1_rlsr6"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rlhjx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ss3kf"]
+
+[node name="Networking" type="Node" unique_id=1558001333]
+script = ExtResource("1_rlsr6")
+
+[node name="Lobby" type="Node2D" parent="." unique_id=807029754]
+
+[node name="ConnectBtn" type="Button" parent="Lobby" unique_id=1667085436]
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 199.0
+offset_bottom = 89.0
+text = "Connect"
+
+[node name="DisconnectBtn" type="Button" parent="Lobby" unique_id=1657847382]
+offset_left = 17.0
+offset_top = 107.0
+offset_right = 199.0
+offset_bottom = 184.0
+text = "Disconnect"
+
+[node name="Players" type="Node3D" parent="." unique_id=1127933741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.885249, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1954756832]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=413840277]
+shape = SubResource("WorldBoundaryShape3D_rlhjx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1181342658]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ss3kf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1480610980]
+transform = Transform3D(1, 0, 0, 0, 0.65043575, 0.7595613, 0, -0.7595613, 0.65043575, 0.9968276, 7.694623, 6.3375607)
+light_energy = 3.6
+
+[connection signal="pressed" from="Lobby/ConnectBtn" to="." method="_on_connect_btn_pressed"]
+[connection signal="pressed" from="Lobby/DisconnectBtn" to="." method="_on_disconnect_btn_pressed"]
